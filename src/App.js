@@ -1,12 +1,13 @@
 import "./App.css";
-import Header, { Footer } from "./components/Header.jsx";
+import Student from "./components/Student";
+
 function App() {
-  let name = "Eftekher Ali Efte";
+
   return (
     <div className="App">
-      <Header />
-      <h1>{name}</h1>
-      <Footer />
+    <Student name="Efte" age={20}/>
+    <Student name="Tonmoy" age={30}/>
+    <Student name="Efte" age={60}/>
     </div>
   );
 }
