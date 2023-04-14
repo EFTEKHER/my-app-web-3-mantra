@@ -1,41 +1,40 @@
 import "./App.css";
+import React, { useState } from "react";
 import Header from "./components/Header";
-import Movie from "./components/Movie";
-import movies from './data.json';
 function App() {
-let login=true;
+  //array destructuring
+const [num, setNum]=useState(0);
+
+function inc()
+{
+  setNum(num+1);
+}
+function dec()
+{
+ if(num>0)
+ {
+  setNum(num-1);
+ }
+ else{
+  setNum(0);
+ }
+}
+function inc2(n)
+{
+  setNum(num+2);
+}
+
   return (
     
     <div className="App">
-
-    {
-      (()=>{
-      if(login)
-      {
-        return <h1 style={{color:'black'}}>see this </h1>;
-      }
-      else{
-        return <h1 style={{color:'pink'}}>Not see this</h1>
-      }
-      })()
-    }
-  <Header/>
+<Header/>
 <div className="main">
-{
-  movies.map((element,key)=>{
-   return(
-    
-    <Movie
-    
-    key={element.imdbID}
-    title={element.Title} 
-    year={element.Year} 
-    image={element.Poster}/>
-   )
-
-})
-}
-
+<h1 className="heading" >{num}</h1>
+<div className="buttons">
+<button className="btn" onClick={inc}>increment</button>
+<button className="btn" onClick={dec}>decrement</button>
+<button className="btn" onClick={()=>inc2(2)}>increment by 2</button>
+</div>
 </div>
     </div>
   );
