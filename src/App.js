@@ -1,13 +1,29 @@
 import "./App.css";
-import Student from "./components/Student";
-
+import Header from "./components/Header";
+import Movie from "./components/Movie";
+import movies from './data.json';
 function App() {
 
   return (
     <div className="App">
-    <Student name="Efte" age={20}/>
-    <Student name="Tonmoy" age={30}/>
-    <Student name="Efte" age={60}/>
+  <Header/>
+<div className="main">
+{
+  movies.map((element,key)=>{
+   return(
+    
+    <Movie
+    
+    key={element.imdbID}
+    title={element.Title} 
+    year={element.Year} 
+    image={element.Poster}/>
+   )
+
+})
+}
+
+</div>
     </div>
   );
 }
